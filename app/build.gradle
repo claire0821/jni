@@ -15,8 +15,12 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags ''
+                cppFlags "-std=c++11 -frtti -fexceptions"
+                abiFilters 'armeabi-v7a' ,'arm64-v8a'
             }
+        }
+        ndk{
+            abiFilters "armeabi-v7a",'arm64-v8a'
         }
     }
 
