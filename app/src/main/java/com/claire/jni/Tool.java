@@ -7,4 +7,5 @@ public class Tool {
     }
 
     public static native void test();
+    public static native void testString(String str);
 }

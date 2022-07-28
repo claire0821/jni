@@ -32,3 +32,12 @@ Java_com_claire_jni_Tool_test(JNIEnv *env, jclass clazz) {
     int a = fun2(1,3);
     LOGI("测试%d",a);
 }
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_claire_jni_Tool_testString(JNIEnv *env, jclass clazz, jstring str) {
+    const char *input_cstr = env->GetStringUTFChars(str, NULL);
+    LOGI("传入字符串%s",input_cstr);
+    //使用完释放
+    env->ReleaseStringUTFChars(str, input_cstr);
+}
